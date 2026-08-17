@@ -1,0 +1,137 @@
+/* ============================================================================
+   ANIMATIONS.CSS — Keyframes, révélations au scroll et transitions
+   ----------------------------------------------------------------------------
+   Toutes les animations sont en CSS pur (aucune dépendance externe).
+   Le JS se contente d'ajouter la classe .is-visible aux éléments [data-reveal].
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1. FADE-IN GLOBAL DE LA PAGE
+   -------------------------------------------------------------------------*/
+body { animation: pageIn 500ms ease-out both; }
+
+@keyframes pageIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ---------------------------------------------------------------------------
+   2. RÉVÉLATION AU SCROLL
+   Usage : <div data-reveal>          → monte depuis le bas
+           <div data-reveal="left">   → arrive de la gauche
+           <div data-reveal="right">  → arrive de la droite
+           <div data-reveal="up">     → arrive du haut
+   Le délai en cascade (stagger) est injecté par main.js via --d.
+   -------------------------------------------------------------------------*/
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 700ms cubic-bezier(.16, 1, .3, 1),
+    transform 700ms cubic-bezier(.16, 1, .3, 1);
+  transition-delay: var(--d, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal="left"]  { transform: translateX(-38px); }
+[data-reveal="right"] { transform: translateX(38px); }
+[data-reveal="up"]    { transform: translateY(-24px); }
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------------------------------------------------------------------------
+   3. KEYFRAMES
+   -------------------------------------------------------------------------*/
+
+/* Point vert « open to collaborations » */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, .55); }
+  50%      { box-shadow: 0 0 0 5px rgba(34, 197, 94, 0); }
+}
+
+/* Anneau flottant autour de la photo */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-9px) rotate(2.5deg); }
+}
+
+/* Soulignement du lien de nav actif */
+@keyframes growIn {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+/* Indicateur de scroll du hero */
+@keyframes scrollDot {
+  0%   { opacity: 0; transform: translateY(0); }
+  35%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(14px); }
+}
+
+/* Apparition du menu mobile */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Effet « shimmer » de chargement (placeholders d'images) */
+@keyframes shimmer {
+  0%   { background-position: -420px 0; }
+  100% { background-position: 420px 0; }
+}
+
+/* Petit rebond du bouton retour en haut */
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+/* ---------------------------------------------------------------------------
+   4. APPLICATIONS
+   -------------------------------------------------------------------------*/
+
+/* Skeleton pendant le chargement paresseux des images */
+.pub__thumb, .project__img {
+  background-image: linear-gradient(
+    90deg,
+    var(--surface-2) 0px,
+    var(--border) 40px,
+    var(--surface-2) 80px
+  );
+  background-size: 840px 100%;
+  animation: shimmer 1.8s infinite linear;
+}
+.pub__thumb img, .project__img img { position: relative; z-index: 1; }
+
+.to-top:hover { animation: nudge 800ms ease-in-out infinite; }
+
+/* Transition douce lors du changement de thème */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition: background-color 320ms ease, border-color 320ms ease, color 320ms ease !important;
+}
+
+/* Filtrage : les éléments réapparaissent avec un léger fade */
+.pub:not(.is-filtered), .project:not(.is-filtered) {
+  animation: pageIn 380ms ease-out both;
+}
+
+/* ---------------------------------------------------------------------------
+   5. ACCESSIBILITÉ — respect de prefers-reduced-motion
+   -------------------------------------------------------------------------*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  html { scroll-behavior: auto; }
+}

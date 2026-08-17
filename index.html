@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  PORTFOLIO ACADÉMIQUE | BAGMBAYE Aggée
+  ----------------------------------------------------------------------------
+  Comment personnaliser ce fichier :
+    1. Cherchez les repères  ▼ ... ▼  dans les commentaires : ce sont les
+       zones de contenu à modifier.
+    2. Tout le contenu textuel est en clair dans le HTML (pas de framework).
+    3. Pour ajouter un élément (publication, news, expérience...), copiez un
+       bloc existant et modifiez-le. Les animations s'appliquent automatiquement
+       grâce à l'attribut  data-reveal .
+  Identité : bleu LinkedIn #0A66C2 + Montserrat (auto-hébergée, dossier fonts/)
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f1115">
+
+  <!-- ▼ SEO — à personnaliser ▼ -->
+  <title>Bagmbaye Aggée | Computer Science Engineer &amp; AI Researcher</title>
+  <meta name="description" content="Personal website of Bagmbaye Aggée, M.Sc. student in Computer Science and Technology at Dalian University of Technology. Research on AI agent memory and health data, teaching, and international development work with the United Nations.">
+  <meta name="author" content="Bagmbaye Aggée">
+  <meta name="keywords" content="Bagmbaye Aggée, Bagmbaye, Dalian University of Technology, computer science, artificial intelligence, AI agent memory, missing data imputation, Chad, UNV, portfolio">
+  <link rel="canonical" href="https://98wings.github.io/">
+
+  <!-- Open Graph / partage social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bagmbaye Aggée | Computer Science Engineer &amp; AI Researcher">
+  <meta property="og:description" content="M.Sc. student at Dalian University of Technology. AI agent memory, health data analytics, and development work with UNDP, WHO, ROWCA and UNECA.">
+  <meta property="og:url" content="https://98wings.github.io/">
+  <meta property="og:image" content="https://98wings.github.io/images/profile.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon (SVG inline, aucun fichier externe requis) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230A66C2'/><text x='50' y='70' font-size='52' font-family='Helvetica,Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>BA</text></svg>">
+
+  <!-- Préchargement de la police du titre (gain de ~200 ms sur le hero) -->
+  <link rel="preload" href="fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Feuilles de style -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Anti-flash : applique le thème avant le premier rendu -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+
+  <!-- Données structurées schema.org (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Bagmbaye Aggée",
+    "alternateName": "BAGMBAYE Aggée",
+    "url": "https://98wings.github.io/",
+    "image": "https://98wings.github.io/images/profile.jpg",
+    "email": "mailto:aggeebagmbaye@mail.dlut.edu.cn",
+    "jobTitle": "M.Sc. Student in Computer Science and Technology",
+    "nationality": "Chadian",
+    "knowsLanguage": ["fr", "en", "zh"],
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Dalian University of Technology",
+      "url": "https://en.dlut.edu.cn/"
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University of Ngaoundéré" },
+      { "@type": "CollegeOrUniversity", "name": "University Institute of Technology, Ngaoundéré" }
+    ],
+    "knowsAbout": ["Artificial Intelligence", "AI agent memory", "Missing-data imputation",
+                   "Health data analytics", "Web development", "Digital development"],
+    "sameAs": [
+      "https://github.com/98wings",
+      "https://www.linkedin.com/in/agg%C3%A9e-bagmbaye-60863b255"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Barre de progression de lecture -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Accessibilité : lien d'évitement -->
+  <a href="#hero" class="skip-link">Skip to main content</a>
+
+  <!-- ======================================================================
+       1. NAVIGATION STICKY
+       ====================================================================== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__brand" aria-label="Back to top">
+        <span class="nav__brand-mark">BA</span>
+        <span class="nav__brand-text">Bagmbaye&nbsp;Aggée</span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Main navigation">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#education" data-i18n="nav.education">Education</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#research" data-i18n="nav.research">Research</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#news" data-i18n="nav.news">News</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <!-- Liens sociaux -->
+        <a class="icon-btn" href="https://github.com/98wings" target="_blank" rel="noopener" data-tip="GitHub" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.18 9.06 7.6 10.53.56.1.76-.24.76-.53v-2.05c-3.09.67-3.74-1.32-3.74-1.32-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.94.1-.73.39-1.22.71-1.5-2.47-.28-5.07-1.24-5.07-5.5 0-1.22.43-2.21 1.15-2.99-.12-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.14a10.6 10.6 0 0 1 5.6 0c2.12-1.44 3.06-1.14 3.06-1.14.61 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.99 0 4.28-2.61 5.22-5.09 5.49.4.35.76 1.03.76 2.08v3.08c0 .3.2.64.77.53a11.11 11.11 0 0 0 7.59-10.53C23.1 5.33 18.27.5 12 .5Z"/></svg>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/agg%C3%A9e-bagmbaye-60863b255" target="_blank" rel="noopener" data-tip="LinkedIn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
+        </a>
+        <!-- ▼ Remplacez par votre vrai profil Google Scholar quand il existe ▼ -->
+        <a class="icon-btn" href="https://scholar.google.com/" target="_blank" rel="noopener" data-tip="Google Scholar" aria-label="Google Scholar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-24L0 9.5l4.84 3.78A7.99 7.99 0 0 1 12 8.9a7.99 7.99 0 0 1 7.16 4.38L24 9.5 12 0Z"/></svg>
+        </a>
+        <a class="icon-btn" href="mailto:aggeebagmbaye@mail.dlut.edu.cn" data-tip="Email" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.24-8 4.76-8-4.76V6l8 4.76L20 6v2.24Z"/></svg>
+        </a>
+
+        <!-- Sélecteur de langue -->
+        <div class="lang-selector" role="group" aria-label="Language selector">
+          <button class="lang-btn is-active" data-lang="en" data-tip="English" aria-label="English">EN</button>
+          <button class="lang-btn" data-lang="fr" data-tip="Français" aria-label="Français">FR</button>
+          <button class="lang-btn" data-lang="zh" data-tip="中文" aria-label="中文">中</button>
+        </div>
+
+        <!-- Toggle thème -->
+        <button class="icon-btn theme-toggle" id="themeToggle" data-tip="Theme" aria-label="Toggle dark / light mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-13a1 1 0 0 1-1-1V1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1Zm0 20a1 1 0 0 1-1-1v-2a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1ZM4.22 5.64a1 1 0 0 1-.7-1.71l1.4-1.42a1 1 0 1 1 1.42 1.42l-1.41 1.4a1 1 0 0 1-.71.31Zm14.14 14.15a1 1 0 0 1-.7-.29l-1.42-1.42a1 1 0 1 1 1.42-1.41l1.41 1.41a1 1 0 0 1-.71 1.71ZM3 13H1a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2Zm20 0h-2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2ZM5.64 19.79a1 1 0 0 1-.71-1.71l1.41-1.41a1 1 0 1 1 1.42 1.41l-1.42 1.42a1 1 0 0 1-.7.29ZM19.78 5.64a1 1 0 0 1-.71-.3l-1.41-1.41a1 1 0 1 1 1.41-1.42l1.42 1.42a1 1 0 0 1-.71 1.71Z"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.64 13a1 1 0 0 0-1.05-.14 8 8 0 0 1-10.45-10.4A1 1 0 0 0 8.8.9a10 10 0 1 0 13.2 13.16 1 1 0 0 0-.36-1.06Z"/></svg>
+        </button>
+
+        <!-- Hamburger mobile -->
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================================
+         2. HERO
+         ==================================================================== -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__inner">
+
+        <div class="hero__photo" data-reveal="left">
+          <!-- ▼ Photo de profil — remplacez images/profile.jpg (carré, 500×500 min) ▼ -->
+          <picture>
+            <source srcset="images/profile.webp" type="image/webp">
+            <img src="images/profile.jpg" alt="Portrait of Bagmbaye Aggée" width="260" height="260" id="profilePhoto" fetchpriority="high">
+          </picture>
+          <span class="hero__photo-ring" aria-hidden="true"></span>
+        </div>
+
+        <div class="hero__text" data-reveal="right">
+          <p class="hero__eyebrow" data-i18n="hero.eyebrow">Hello, I'm</p>
+          <h1 class="hero__name">Bagmbaye <span class="hero__lastname">Aggée</span></h1>
+          <p class="hero__role" data-i18n="hero.role">
+            Computer Science Engineer · M.Sc. student at
+            <a href="https://en.dlut.edu.cn/" target="_blank" rel="noopener">Dalian University of Technology</a>
+          </p>
+          <p class="hero__quote">
+            “Build systems that earn their place in memory, and in people's lives.”
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="data/cv.pdf" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16 6 10h4V3h4v7h4l-6 6Zm-8 5v-2h16v2H4Z"/></svg>
+              Download CV
+            </a>
+            <a class="btn" href="#research">My research</a>
+            <a class="btn" href="#contact">Get in touch</a>
+          </div>
+
+          <!-- Compteurs animés — modifiez data-count -->
+          <div class="stats">
+            <div class="stat"><span class="stat__num" data-count="7">0</span><span class="stat__label">UN&nbsp;missions</span></div>
+            <div class="stat"><span class="stat__num" data-count="200">0</span><span class="stat__label">Teaching&nbsp;hours</span></div>
+            <div class="stat"><span class="stat__num" data-count="4">0</span><span class="stat__label">Degrees</span></div>
+            <div class="stat"><span class="stat__num" data-count="3">0</span><span class="stat__label">Papers&nbsp;in&nbsp;progress</span></div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <!-- ====================================================================
+         3. ABOUT
+         ==================================================================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section__title" data-reveal data-i18n="about.title">About</h2>
+        <div class="about">
+          <div class="about__text" data-reveal>
+            <!-- ▼ Votre biographie ▼ -->
+            <p>
+              I am a computer science engineer and postgraduate researcher, currently enrolled in a
+              <strong>M.Sc. in Computer Science and Technology</strong> at the
+              <a href="https://en.dlut.edu.cn/" target="_blank" rel="noopener">Dalian University of Technology</a>,
+              China. I already hold a Master's in Computer Engineering from the
+              <a href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">University of Ngaoundéré</a>,
+              Cameroon.
+            </p>
+            <p>
+              My current research asks a simple question with awkward consequences: when an
+              autonomous agent gets something right, <em>which</em> of its stored memories deserves
+              the credit? I work on <strong>causal credit attribution for self-evolving AI agent
+              memory</strong>: mechanisms that trace outcomes back to their contributing inputs,
+              so an agent keeps only what demonstrably earns its place. Before that, I spent two years
+              on <strong>missing-data imputation in public health time series</strong>, rebuilding
+              incomplete national malaria records into series usable for actual decision-making.
+            </p>
+            <p>
+              Originally from Chad, I have taught 200+ hours at a public university, supported
+              operations in a member-owned microfinance network and a national public broadcaster,
+              and completed <strong>several United Nations volunteer assignments</strong> with UNDP,
+              WHO, ROWCA and UNECA. That mix of research rigour on one side and resource-constrained
+              field reality on the other is what I bring to a team.
+            </p>
+            <p>
+              I am open to research collaborations, internships and PhD opportunities in AI, data
+              science and digital development. <a href="#contact">Write to me</a>, I answer every
+              message.
+            </p>
+
+            <ul class="chips" aria-label="Areas of interest">
+              <li>AI Agent Memory</li>
+              <li>Machine Learning</li>
+              <li>Time Series &amp; Imputation</li>
+              <li>Health Data Analytics</li>
+              <li>Python · R · SQL</li>
+              <li>Web Development</li>
+              <li>Digital Development</li>
+            </ul>
+          </div>
+
+          <aside class="about__card" data-reveal="up">
+            <h3>At a glance</h3>
+            <dl class="facts">
+              <dt>Position</dt><dd>M.Sc. student &amp; researcher</dd>
+              <dt>Institution</dt><dd>Dalian University of Technology</dd>
+              <dt>Location</dt><dd>Dalian, Liaoning, China</dd>
+              <dt>Origin</dt><dd>Chad 🇹🇩</dd>
+              <dt>Languages</dt><dd>French (native) · English (professional) · Chinese (elementary)</dd>
+              <dt>Status</dt><dd><span class="badge badge--live">Open to collaborations</span></dd>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         4. EDUCATION — Timeline
+         ==================================================================== -->
+    <section class="section section--alt" id="education">
+      <div class="container">
+        <h2 class="section__title" data-reveal data-i18n="education.title">Education</h2>
+
+        <ol class="timeline">
+          <!-- ▼ Un <li> par diplôme — copiez/collez pour en ajouter ▼ -->
+          <li class="timeline__item" data-reveal>
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div class="timeline__date">Sep 2025 — Present</div>
+            <div class="timeline__body">
+              <h3 class="timeline__heading">
+                M.Sc. in Computer Science and Technology
+                <a class="timeline__org" href="https://en.dlut.edu.cn/" target="_blank" rel="noopener">Dalian University of Technology</a>
+              </h3>
+              <p class="timeline__meta">Dalian, P.R. China · currently enrolled</p>
+              <p>Graduate research on causal credit attribution for self-evolving AI agent memory,
+                 alongside coursework in machine learning and advanced computing.</p>
+              <ul class="tags"><li>AI Agents</li><li>Machine Learning</li><li>Research</li></ul>
+            </div>
+          </li>
+
+          <li class="timeline__item" data-reveal>
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div class="timeline__date">Oct 2021 — Oct 2023</div>
+            <div class="timeline__body">
+              <h3 class="timeline__heading">
+                M.Sc. in Computer Engineering
+                <a class="timeline__org" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">University of Ngaoundéré</a>
+              </h3>
+              <p class="timeline__meta">Ngaoundéré, Cameroon · Thesis written</p>
+              <p>Thesis on missing-data imputation in public health time series: comparative
+                 evaluation of imputation methods on incomplete national malaria records.</p>
+              <ul class="tags"><li>Time Series</li><li>Imputation</li><li>Public Health</li></ul>
+            </div>
+          </li>
+
+          <li class="timeline__item" data-reveal>
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div class="timeline__date">Oct 2021 — Nov 2022</div>
+            <div class="timeline__body">
+              <h3 class="timeline__heading">
+                B.Sc. in Software Engineering
+                <a class="timeline__org" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">University Institute of Technology</a>
+              </h3>
+              <p class="timeline__meta">Ngaoundéré, Cameroon · Final project · taken concurrently with the M.Sc.</p>
+              <p>Applied software engineering programme completed in parallel with graduate study;
+                 final project deployed on the official university portal.</p>
+              <ul class="tags"><li>Software Engineering</li><li>Web</li></ul>
+            </div>
+          </li>
+
+          <li class="timeline__item" data-reveal>
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div class="timeline__date">Oct 2018 — Oct 2021</div>
+            <div class="timeline__body">
+              <h3 class="timeline__heading">
+                B.Sc. in Computer Science
+                <a class="timeline__org" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">University of Ngaoundéré</a>
+              </h3>
+              <p class="timeline__meta">Ngaoundéré, Cameroon</p>
+              <p>Fundamental computer science: algorithms, systems, networks and mathematics.</p>
+              <ul class="tags"><li>Algorithms</li><li>Systems</li><li>Networks</li></ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         5. EXPERIENCE
+         ==================================================================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section__title" data-reveal data-i18n="experience.title">Experience</h2>
+
+        <div class="cards">
+          <!-- ▼ Une <article> par expérience ▼ -->
+          <article class="card" data-reveal>
+            <header class="card__head">
+              <h3>Online Volunteer | Research, Drafting &amp; Communications</h3>
+              <span class="card__date">Jun 2024 — Present</span>
+            </header>
+            <p class="card__org">
+              <a href="https://www.unv.org/" target="_blank" rel="noopener">United Nations Volunteers (UNV)</a>
+              · Remote: UNDP, WHO, ROWCA, UNECA
+            </p>
+            <p>Completed <strong>several UN volunteer assignments</strong> across four agencies,
+               supporting SDG-aligned programmes in digital skills, AI awareness and public health.
+               Drafted knowledge products and programme briefs, translating technical content into
+               clear summaries for non-specialist audiences, and produced bilingual French/English
+               material extending the reach of WHO and UNECA campaigns.</p>
+            <ul class="tags"><li>Research</li><li>Drafting</li><li>Bilingual FR/EN</li><li>SDGs</li></ul>
+          </article>
+
+          <article class="card" data-reveal>
+            <header class="card__head">
+              <h3>University Lecturer | Computer Science</h3>
+              <span class="card__date">Feb 2025 — Jul 2025</span>
+            </header>
+            <p class="card__org">University of Pala (public university) · Pala, Chad</p>
+            <p>Delivered <strong>200+ hours of teaching</strong> in a single semester across
+               <strong>four academic departments</strong> to cohorts of <strong>100+ students</strong>.
+               Designed syllabi, examinations and materials, then graded all resulting work. Raised
+               attendance by introducing low-cost, technology-enabled methods adapted to
+               connectivity and equipment constraints.</p>
+            <ul class="tags"><li>Teaching</li><li>Curriculum Design</li><li>EdTech</li></ul>
+          </article>
+
+          <article class="card" data-reveal>
+            <header class="card__head">
+              <h3>Professional Intern | Production &amp; IT</h3>
+              <span class="card__date">Dec 2024 — Feb 2025</span>
+            </header>
+            <p class="card__org">National Television (ONAMA), public broadcaster · N'Djamena, Chad</p>
+            <p>Supported daily operations of Chad's national broadcaster across field reporting,
+               live studio production, editing, motion graphics and IT systems. Prepared and
+               quality-checked broadcast segments to on-air deadlines and resolved technical
+               incidents during live transmission.</p>
+            <ul class="tags"><li>Avid</li><li>Adobe CC</li><li>Live Production</li></ul>
+          </article>
+
+          <article class="card" data-reveal>
+            <header class="card__head">
+              <h3>Professional Intern | Operations &amp; IT</h3>
+              <span class="card__date">Jul 2024 — Sep 2024</span>
+            </header>
+            <p class="card__org">Union of Savings and Credit Clubs (UCEC MK) · Pala, Chad</p>
+            <p>Conducted <strong>credit-recovery field missions</strong> for a member-owned
+               microfinance network, tracking and reconciling defaulted loan portfolios in the
+               PERFECT banking system. Collected and cleaned operational data across branches, and
+               authored the functional specification for a website modernizing member services.</p>
+            <ul class="tags"><li>Microfinance</li><li>Data Reconciliation</li><li>IT Support</li></ul>
+          </article>
+
+          <article class="card" data-reveal>
+            <header class="card__head">
+              <h3>Digital Inclusion Volunteer | University Outreach</h3>
+              <span class="card__date">Sep 2023 — Oct 2023</span>
+            </header>
+            <p class="card__org">Orange Cameroon · Ngaoundéré, Cameroon</p>
+            <p>Planned and delivered campus awareness events for the <strong>Parcours Sup</strong>
+               digital orientation platform: logistics, materials and on-site facilitation,
+               strengthening links between the private sector and higher education.</p>
+            <ul class="tags"><li>Outreach</li><li>Digital Inclusion</li><li>Events</li></ul>
+          </article>
+
+          <article class="card" data-reveal>
+            <header class="card__head">
+              <h3>Student Intern | Web Development</h3>
+              <span class="card__date">Jun 2022 — Sep 2022</span>
+            </header>
+            <p class="card__org">
+              ICT Development Center (CDTIC) · Ngaoundéré, Cameroon
+            </p>
+            <p>Designed, developed and deployed the <strong>Student Association module</strong> of the
+               official portal of the University of Ngaoundéré
+               (<a href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">univ-ndere.cm</a>),
+               a public-sector digital service used by the entire student body. I documented it and
+               handed it over to the in-house IT team, which still operates it.</p>
+            <ul class="tags"><li>PHP</li><li>JavaScript</li><li>Public Sector</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         6. RESEARCH & PUBLICATIONS
+         ==================================================================== -->
+    <section class="section section--alt" id="research">
+      <div class="container">
+        <h2 class="section__title" data-reveal data-i18n="research.title">Research</h2>
+        <p class="section__lead" data-reveal>Three papers currently in preparation. Titles and venues will be updated as they are submitted.</p>
+
+        <!-- Filtres -->
+        <div class="filters" data-reveal role="group" aria-label="Filter research items">
+          <button class="filter is-active" data-filter="all">All</button>
+          <button class="filter" data-filter="ai">AI &amp; Agents</button>
+          <button class="filter" data-filter="data">Data &amp; Health</button>
+          <button class="filter" data-filter="networks">Networks</button>
+        </div>
+
+        <div class="pubs" id="pubList">
+          <!-- ▼ Une <article class="pub"> par travail de recherche ▼ -->
+          <article class="pub" data-reveal data-year="2026" data-type="ai">
+            <div class="pub__thumb">
+              <img src="images/publications/pub-1.svg" alt="Illustration: AI agent memory" loading="lazy" width="220" height="140">
+            </div>
+            <div class="pub__body">
+              <h3 class="pub__title">Causal credit attribution for self-evolving AI agent memory</h3>
+              <p class="pub__authors"><strong>A. Bagmbaye</strong> · M.Sc. research, Dalian University of Technology</p>
+              <p class="pub__venue"><span class="venue venue--hl">In progress · 2025 — present</span></p>
+              <p class="pub__abstract">Designing mechanisms that let an autonomous agent trace outcomes
+                back to the stored experiences that produced them, so memory retains only what
+                demonstrably earns its place.</p>
+              <div class="pub__links">
+                <span class="pill">Ongoing</span>
+                <span class="pill">Paper in preparation</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub" data-reveal data-year="2023" data-type="data">
+            <div class="pub__thumb">
+              <img src="images/publications/pub-2.svg" alt="Illustration: time series imputation" loading="lazy" width="220" height="140">
+            </div>
+            <div class="pub__body">
+              <h3 class="pub__title">Missing-data imputation in public health time series</h3>
+              <p class="pub__authors"><strong>A. Bagmbaye</strong> · Master's thesis, University of Ngaoundéré</p>
+              <p class="pub__venue"><span class="venue">Master's thesis, 2023 · paper in preparation</span></p>
+              <p class="pub__abstract">Comparative evaluation of imputation methods on incomplete
+                national malaria records (Adamaoua region, Cameroon), restoring series suitable for
+                statistical analysis and evidence-based decision-making.</p>
+              <div class="pub__links">
+                <span class="pill">Master's thesis</span>
+                <span class="pill">Paper in preparation</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub" data-reveal data-year="2024" data-type="networks">
+            <div class="pub__thumb">
+              <img src="images/publications/pub-3.svg" alt="Illustration: wireless sensor networks" loading="lazy" width="220" height="140">
+            </div>
+            <div class="pub__body">
+              <h3 class="pub__title">Energy-efficient routing in wireless sensor networks</h3>
+              <p class="pub__authors"><strong>A. Bagmbaye</strong> and collaborators</p>
+              <p class="pub__venue"><span class="venue">Paper in preparation</span></p>
+              <p class="pub__abstract">Work on routing strategies that extend network lifetime under
+                the energy budgets typical of low-resource deployments.</p>
+              <div class="pub__links">
+                <span class="pill">Paper in preparation</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub" data-reveal data-year="2022" data-type="ai">
+            <div class="pub__thumb">
+              <img src="images/projects/proj-1.svg" alt="Illustration: university portal module" loading="lazy" width="220" height="140">
+            </div>
+            <div class="pub__body">
+              <h3 class="pub__title">Student Association module, University of Ngaoundéré portal</h3>
+              <p class="pub__authors"><strong>A. Bagmbaye</strong> · B.Sc. final project, University Institute of Technology</p>
+              <p class="pub__venue"><span class="venue">B.Sc. final project, 2022</span></p>
+              <p class="pub__abstract">Design, development and deployment of a public-sector digital
+                service still in production on the official university portal.</p>
+              <div class="pub__links">
+                <a class="pill" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">Live site</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="section__more" data-reveal>
+          <a href="data/cv.pdf" target="_blank" rel="noopener">Full CV (PDF) →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         7. HONORS & AWARDS
+         ==================================================================== -->
+    <section class="section" id="awards">
+      <div class="container">
+        <h2 class="section__title" data-reveal>Honors &amp; Distinctions</h2>
+        <div class="cards cards--3">
+          <article class="card card--award" data-reveal>
+            <span class="card__year">2025</span>
+            <h3>Graduate admission, Dalian University of Technology</h3>
+            <p class="card__org">Double First-Class university, P.R. China</p>
+            <p>Admitted to the M.Sc. programme in Computer Science and Technology.</p>
+          </article>
+          <article class="card card--award" data-reveal>
+            <span class="card__year">2023</span>
+            <h3>Master's thesis in health data imputation</h3>
+            <p class="card__org">University of Ngaoundéré</p>
+            <p>Missing-data imputation in public health time series.</p>
+          </article>
+          <article class="card card--award" data-reveal>
+            <span class="card__year">2022</span>
+            <h3>B.Sc. final project deployed in production</h3>
+            <p class="card__org">University Institute of Technology, Ngaoundéré</p>
+            <p>Student Association module deployed on the official university portal.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         8. NEWS
+         ==================================================================== -->
+    <section class="section section--alt" id="news">
+      <div class="container">
+        <h2 class="section__title" data-reveal data-i18n="news.title">News</h2>
+
+        <ul class="news" id="newsList">
+          <!-- ▼ Plus récent en haut ▼ -->
+          <li class="news__item" data-reveal>
+            <time datetime="2026-08">Aug 2026</time>
+            <p>Launched this personal website, built from scratch with vanilla HTML/CSS/JS.
+               <a href="https://github.com/98wings" target="_blank" rel="noopener">Source</a></p>
+          </li>
+          <li class="news__item" data-reveal>
+            <time datetime="2025-09">Sep 2025</time>
+            <p>Started the M.Sc. in Computer Science and Technology at Dalian University of Technology. 🇨🇳</p>
+          </li>
+          <li class="news__item" data-reveal>
+            <time datetime="2025-07">Jul 2025</time>
+            <p>Completed a semester as University Lecturer at the University of Pala, with 200+ teaching hours.</p>
+          </li>
+          <li class="news__item is-hidden" data-reveal>
+            <time datetime="2025-02">Feb 2025</time>
+            <p>Finished the production &amp; IT internship at ONAMA, Chad's national public broadcaster.</p>
+          </li>
+          <li class="news__item is-hidden" data-reveal>
+            <time datetime="2024-06">Jun 2024</time>
+            <p>Began volunteering with the United Nations Volunteers programme.</p>
+          </li>
+          <li class="news__item is-hidden" data-reveal>
+            <time datetime="2023-10">Oct 2023</time>
+            <p>Defended my Master's thesis on missing-data imputation in public health time series.</p>
+          </li>
+        </ul>
+
+        <button class="btn btn--ghost" id="newsToggle" data-reveal>Show more</button>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         9. PROJECTS
+         ==================================================================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section__title" data-reveal data-i18n="projects.title">Projects</h2>
+
+        <div class="filters" data-reveal role="group" aria-label="Filter projects">
+          <button class="filter is-active" data-pfilter="all">All</button>
+          <button class="filter" data-pfilter="research">Research</button>
+          <button class="filter" data-pfilter="software">Software</button>
+          <button class="filter" data-pfilter="social">Social impact</button>
+        </div>
+
+        <div class="grid" id="projectGrid">
+          <article class="project" data-reveal data-cat="software">
+            <div class="project__img"><img src="images/projects/proj-1.svg" alt="Project preview" loading="lazy" width="400" height="240"></div>
+            <div class="project__body">
+              <h3>University portal: Student Association module</h3>
+              <p>Public-sector web service built, documented and handed over to the University of
+                 Ngaoundéré's IT team. Still in production.</p>
+              <ul class="tags"><li>PHP</li><li>JavaScript</li><li>MySQL</li></ul>
+              <a class="link-arrow" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">Visit the site</a>
+            </div>
+          </article>
+
+          <article class="project" data-reveal data-cat="research">
+            <div class="project__img"><img src="images/projects/proj-2.svg" alt="Project preview" loading="lazy" width="400" height="240"></div>
+            <div class="project__body">
+              <h3>Health data imputation pipeline</h3>
+              <p>Comparative benchmark of imputation methods on incomplete national malaria records,
+                 producing series usable for statistical analysis.</p>
+              <ul class="tags"><li>Python</li><li>R</li><li>Time Series</li></ul>
+              <a class="link-arrow" href="#research">Read more</a>
+            </div>
+          </article>
+
+          <article class="project" data-reveal data-cat="social">
+            <div class="project__img"><img src="images/projects/proj-3.svg" alt="Project preview" loading="lazy" width="400" height="240"></div>
+            <div class="project__body">
+              <h3>UN knowledge products &amp; campaigns</h3>
+              <p>Bilingual briefs, graphics and multimedia produced across UNV assignments for
+                 UNDP, WHO, ROWCA and UNECA.</p>
+              <ul class="tags"><li>Adobe CC</li><li>Writing</li><li>FR/EN</li></ul>
+              <a class="link-arrow" href="https://www.unv.org/" target="_blank" rel="noopener">About UNV</a>
+            </div>
+          </article>
+
+         <!--<article class="project" data-reveal data-cat="software">
+            <div class="project__img"><img src="images/og-cover.svg" alt="Project preview" loading="lazy" width="400" height="240"></div>
+            <div class="project__body">
+              <h3>98wings.github.io</h3>
+              <p>This site: a fast, accessible academic portfolio with no framework, no CDN and
+                 self-hosted fonts.</p>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>JS</li></ul>
+              <a class="link-arrow" href="https://github.com/98wings" target="_blank" rel="noopener">View on GitHub</a>
+            </div>
+          </article>-->
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         10-12. TEACHING · SERVICE · SKILLS
+         ==================================================================== -->
+    <section class="section section--alt" id="service">
+      <div class="container">
+        <div class="tri">
+          <div data-reveal>
+            <h2 class="section__title section__title--sm">Teaching</h2>
+            <ul class="plain">
+              <li><strong>University Lecturer</strong> in Computer Science, four departments<br><span class="muted">Feb–Jul 2025 · University of Pala, Chad · 200+ hours, 100+ students</span></li>
+              <li><strong>Tutorials &amp; practical sessions</strong> for large undergraduate cohorts<br><span class="muted">2025 · University of Pala</span></li>
+            </ul>
+          </div>
+
+          <div data-reveal>
+            <h2 class="section__title section__title--sm">Service &amp; Volunteering</h2>
+            <ul class="plain">
+              <li><strong>Online Volunteer</strong> at United Nations Volunteers <span class="muted">(2024 — present)</span></li>
+              <li><strong>Digital Inclusion Volunteer</strong> at Orange Cameroon <span class="muted">(2023)</span></li>
+              <li><strong>Community IT support</strong> for students and local organisations <span class="muted">(ongoing)</span></li>
+            </ul>
+          </div>
+
+          <div data-reveal>
+            <h2 class="section__title section__title--sm">Technical Skills</h2>
+            <ul class="plain">
+              <li><strong>Data &amp; ML</strong>: Python, R, SQL, Power BI, time series, imputation</li>
+              <li><strong>Web</strong>: HTML5, CSS3, JavaScript, PHP, Git</li>
+              <li><strong>Media &amp; Office</strong>: Adobe CC, Avid Media Composer, Microsoft Office</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         13. MISCELLANEOUS
+         ==================================================================== -->
+    <section class="section" id="misc">
+      <div class="container">
+        <h2 class="section__title" data-reveal>Beyond research</h2>
+        <div class="misc" data-reveal>
+          <p>
+            I grew up in Chad, studied in Cameroon and now live in Dalian. Three places that
+            disagree about almost everything except the value of a good meal. Outside the lab I read
+            non-fiction, follow football, cook dishes from home for friends, and I am slowly
+            learning to photograph the sea in a Dalian winter. I also spend more time than I should
+            adjusting CSS.
+          </p>
+          <ul class="chips">
+            <li>📚 Reading</li>
+            <li>⚽ Football</li>
+            <li>📷 Photography</li>
+            <li>🍲 Cooking</li>
+            <li>🌐 Languages</li>
+            <li>🤝 Volunteering</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         CONTACT
+         ==================================================================== -->
+    <section class="section section--alt" id="contact">
+      <div class="container">
+        <h2 class="section__title" data-reveal data-i18n="contact.title">Get in touch</h2>
+        <div class="contact" data-reveal>
+          <p class="contact__lead">
+            The fastest way to reach me is by email. I am happy to talk about research
+            collaborations, internships, PhD positions, or anything on this page.
+          </p>
+
+          <!--
+            Formulaire fonctionnel sans backend :
+            créez un compte gratuit sur https://formspree.io et remplacez YOUR_ID.
+            Sinon, laissez tel quel : le formulaire ouvre votre client mail (fallback JS).
+          -->
+          <form class="form" id="contactForm" action="https://formspree.io/f/YOUR_ID" method="POST">
+            <div class="form__row">
+              <label class="field">
+                <span>Name</span>
+                <input type="text" name="name" required placeholder="Your name">
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input type="email" name="email" required placeholder="you@example.com">
+              </label>
+            </div>
+            <label class="field">
+              <span>Message</span>
+              <textarea name="message" rows="5" required placeholder="Hello Aggée, …"></textarea>
+            </label>
+            <button class="btn btn--primary" type="submit">Send message</button>
+            <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+
+          <ul class="contact__direct">
+            <li><span>Academic</span> <a href="mailto:aggeebagmbaye@mail.dlut.edu.cn">aggeebagmbaye@mail.dlut.edu.cn</a></li>
+           <!-- %<li><span>Personal</span> <a href="mailto:aggeebagmbaye@gmail.com">aggeebagmbaye@gmail.com</a></li>-->
+            <li><span>GitHub</span> <a href="https://github.com/98wings" target="_blank" rel="noopener">@98wings</a></li>
+            <li><span>LinkedIn</span> <a href="https://www.linkedin.com/in/agg%C3%A9e-bagmbaye-60863b255" target="_blank" rel="noopener">Bagmbaye Aggée</a></li>
+            <li><span>CV</span> <a href="data/cv.pdf" target="_blank" rel="noopener">Download PDF</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       14. FOOTER
+       ==================================================================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year">2026</span> Bagmbaye Aggée. All rights reserved.</p>
+      <p class="footer__meta">
+        Built with plain HTML, CSS &amp; JavaScript · Hosted on GitHub Pages ·
+        Last updated <time id="updated" datetime="2026-08-16">16 Aug 2026</time>
+      </p>
+      <div class="footer__social">
+        <a class="icon-btn" href="https://github.com/98wings" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.18 9.06 7.6 10.53.56.1.76-.24.76-.53v-2.05c-3.09.67-3.74-1.32-3.74-1.32-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.94.1-.73.39-1.22.71-1.5-2.47-.28-5.07-1.24-5.07-5.5 0-1.22.43-2.21 1.15-2.99-.12-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.14a10.6 10.6 0 0 1 5.6 0c2.12-1.44 3.06-1.14 3.06-1.14.61 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.99 0 4.28-2.61 5.22-5.09 5.49.4.35.76 1.03.76 2.08v3.08c0 .3.2.64.77.53a11.11 11.11 0 0 0 7.59-10.53C23.1 5.33 18.27.5 12 .5Z"/></svg>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/agg%C3%A9e-bagmbaye-60863b255" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
+        </a>
+        <a class="icon-btn" href="https://scholar.google.com/" target="_blank" rel="noopener" aria-label="Google Scholar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-24L0 9.5l4.84 3.78A7.99 7.99 0 0 1 12 8.9a7.99 7.99 0 0 1 7.16 4.38L24 9.5 12 0Z"/></svg>
+        </a>
+        <a class="icon-btn" href="mailto:aggeebagmbaye@mail.dlut.edu.cn" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.24-8 4.76-8-4.76V6l8 4.76L20 6v2.24Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/languages.js" defer></script>
+  <script src="js/dark-mode.js" defer></script>
+  <script src="js/smooth-scroll.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
