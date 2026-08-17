@@ -54,15 +54,15 @@
    -------------------------------------------------------------------------*/
 @media (max-width: 860px) {
   html { scroll-padding-top: 64px; }
-  .section { padding: 44px 0; }
+  .section { padding: 48px 0; }
 
   /* Nav mobile : voir le bloc ≤1150px plus haut, qui couvre déjà cette
      largeur (860px < 1150px). */
 
   /* --- Hero --- */
-  .hero { padding: 40px 0 48px; }
+  .hero { padding: 44px 0 48px; }
   .hero__inner { grid-template-columns: 1fr; gap: 22px; text-align: center; justify-items: center; }
-  .hero__photo { width: 160px; height: 160px; }
+  .hero__photo { width: 170px; height: 170px; }
   .hero__quote { border-left: none; border-top: 2px solid var(--accent); padding: 12px 0 0; }
   .hero__cta { justify-content: center; }
   .stats { grid-template-columns: repeat(4, 1fr); text-align: center; }
@@ -75,13 +75,13 @@
   /* --- Timeline : la date passe au-dessus --- */
   .timeline::before { left: 5px; }
   .timeline__item { grid-template-columns: 1fr; gap: 6px; padding-left: 28px; padding-bottom: 30px; }
-  .timeline__date { font-size: .70rem; }
+  .timeline__date { font-size: .85rem; }
   .timeline__dot { left: 0; top: 7px; }
   .timeline__date { text-align: left; padding-top: 0; padding-right: 0; color: var(--accent-soft); }
 
   /* --- Publications --- */
   .pub { grid-template-columns: 1fr; gap: 12px; padding: 14px; }
-  .pub__thumb img { height: 130px; }
+  .pub__thumb img { height: 160px; }
 
   /* --- Divers --- */
   .cards--3, .grid { grid-template-columns: 1fr; }
@@ -105,30 +105,30 @@
   .nav__actions .icon-btn:nth-child(1),
   .nav__actions .icon-btn:nth-child(2),
   .nav__actions .icon-btn:nth-child(3) { display: none; }
-  .lang-btn { width: 30px; height: 30px; font-size: .62rem; }
+  .lang-btn { width: 30px; height: 30px; font-size: .68rem; }
 
   .hero { padding: 30px 0 36px; }
   .hero__inner { gap: 14px; }
-  .hero__photo { width: 108px; height: 108px; }
-  .hero__eyebrow { font-size: .68rem; }
-  .hero__name { font-size: 1.3rem; margin-bottom: 5px; }
-  .hero__role { font-size: .76rem; }
-  .hero__quote { font-size: .75rem; padding-top: 6px; margin-bottom: 12px; }
+  .hero__photo { width: 120px; height: 120px; }
+  .hero__eyebrow { font-size: .75rem; }
+  .hero__name { font-size: 1.6rem; margin-bottom: 5px; }
+  .hero__role { font-size: .85rem; }
+  .hero__quote { font-size: .85rem; padding-top: 6px; margin-bottom: 12px; }
   .hero__cta { flex-direction: column; width: 100%; }
   .hero__cta .btn { width: 100%; justify-content: center; }
 
-  .section { padding: 36px 0; }
+  .section { padding: 40px 0; }
 
   .stats { grid-template-columns: repeat(2, 1fr); gap: 14px 10px; margin-top: 16px; padding-top: 12px; }
-  .stat__num { font-size: 1.05rem; }
+  .stat__num { font-size: 1.2rem; }
 
-  .card { padding: 13px 14px; }
+  .card { padding: 16px 18px; }
   .card__head { gap: 4px; }
   .card--award .card__row { padding-right: 0; }
-  .card__year { position: static; display: block; margin-bottom: 4px; font-size: 1.05rem; }
+  .card__year { position: static; display: block; margin-bottom: 4px; font-size: 1.15rem; }
 
   .news__item { grid-template-columns: 1fr; gap: 2px; }
-  .news__item time { font-size: .66rem; }
+  .news__item time { font-size: .72rem; }
 
   .form__row { grid-template-columns: 1fr; }
   .form .btn { width: 100%; justify-content: center; }
@@ -146,10 +146,10 @@
    ≤ 380px
    -------------------------------------------------------------------------*/
 @media (max-width: 380px) {
-  .hero__photo { width: 88px; height: 88px; }
-  .hero__name { font-size: 1.18rem; }
+  .hero__photo { width: 96px; height: 96px; }
+  .hero__name { font-size: 1.35rem; }
   .filters { gap: 7px; }
-  .filter { padding: 6px 12px; font-size: .68rem; }
+  .filter { padding: 6px 12px; font-size: .75rem; }
 
   /* Barre de nav très serrée : on réduit encore un peu les boutons pour que
      le sélecteur de langue et le thème restent visibles sans wrap. */
