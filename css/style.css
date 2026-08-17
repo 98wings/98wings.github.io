@@ -92,8 +92,8 @@
 
 /* --- Thème clair --- */
 [data-theme="light"] {
-  --bg:          #ffffff;
-  --bg-alt:      #f6f7f9;
+  --bg:          #f5f6f8;
+  --bg-alt:      #eceef2;
   --surface:     #ffffff;
   --surface-2:   #f2f4f7;
   --text:        #16191f;
@@ -456,12 +456,6 @@ p { margin: 0 0 1.1em; }
   transition: transform var(--t-slow), border-radius var(--t-slow);
 }
 .hero__photo:hover img { transform: scale(1.03) rotate(1deg); border-radius: 50%; }
-.hero__photo-ring {
-  position: absolute; inset: -8px;
-  border: 1px dashed var(--border);
-  border-radius: 26px;
-  animation: floaty 7s ease-in-out infinite;
-}
 
 .hero__eyebrow {
   font-size: .66rem; letter-spacing: .16em; text-transform: uppercase;

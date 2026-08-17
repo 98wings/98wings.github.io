@@ -51,12 +51,6 @@ body { animation: pageIn 500ms ease-out both; }
   50%      { box-shadow: 0 0 0 5px rgba(34, 197, 94, 0); }
 }
 
-/* Anneau flottant autour de la photo */
-@keyframes floaty {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%      { transform: translateY(-9px) rotate(2.5deg); }
-}
-
 /* Soulignement du lien de nav actif */
 @keyframes growIn {
   from { transform: scaleX(0); opacity: 0; }
