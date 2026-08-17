@@ -270,26 +270,39 @@
 
     var EMAIL = 'aggeebagmbaye@mail.dlut.edu.cn'; // ▼ votre adresse ▼
 
+    var STATUS_MSG = {
+      en: { opening: 'Opening your email app…', sending: 'Sending…', thanks: 'Thank you — your message was sent.', error: 'Something went wrong. Please email me directly.', network: 'Network error. Please email me directly.' },
+      fr: { opening: 'Ouverture de votre client mail…', sending: 'Envoi en cours…', thanks: 'Merci — votre message a bien été envoyé.', error: 'Une erreur est survenue. Merci de m\'écrire directement par email.', network: 'Erreur réseau. Merci de m\'écrire directement par email.' },
+      zh: { opening: '正在打开您的邮件客户端…', sending: '发送中…', thanks: '谢谢 — 您的消息已发送。', error: '出现问题,请直接给我发邮件。', network: '网络错误,请直接给我发邮件。' }
+    };
+    function msg(key) {
+      var lang = document.documentElement.getAttribute('data-lang') || 'en';
+      return (STATUS_MSG[lang] || STATUS_MSG.en)[key];
+    }
+
     form.addEventListener('submit', function (e) {
       var action = form.getAttribute('action') || '';
+
+      if (status) status.classList.remove('is-success', 'is-error');
 
       // Formspree non configuré → repli sur le client mail
       if (action.indexOf('YOUR_ID') !== -1 || action === '') {
         e.preventDefault();
         var name = (form.name && form.name.value) || '';
         var mail = (form.email && form.email.value) || '';
-        var msg  = (form.message && form.message.value) || '';
-        var body = encodeURIComponent(msg + '\n\n— ' + name + ' (' + mail + ')');
+        var msg2  = (form.message && form.message.value) || '';
+        var body = encodeURIComponent(msg2 + '\n\n— ' + name + ' (' + mail + ')');
         window.location.href = 'mailto:' + EMAIL +
           '?subject=' + encodeURIComponent('Website contact — ' + name) +
           '&body=' + body;
-        if (status) status.textContent = 'Opening your email app…';
+        if (status) status.textContent = msg('opening');
         return;
       }
 
-      // Envoi AJAX vers Formspree
+      // Envoi AJAX vers Formspree — la confirmation ne s'affiche
+      // qu'après une vraie réponse HTTP 200 du serveur Formspree.
       e.preventDefault();
-      if (status) status.textContent = 'Sending…';
+      if (status) status.textContent = msg('sending');
 
       fetch(action, {
         method: 'POST',
@@ -299,13 +312,13 @@
         .then(function (res) {
           if (res.ok) {
             form.reset();
-            if (status) status.textContent = 'Thank you — your message was sent.';
+            if (status) { status.textContent = msg('thanks'); status.classList.add('is-success'); }
           } else {
-            if (status) status.textContent = 'Something went wrong. Please email me directly.';
+            if (status) { status.textContent = msg('error'); status.classList.add('is-error'); }
           }
         })
         .catch(function () {
-          if (status) status.textContent = 'Network error. Please email me directly.';
+          if (status) { status.textContent = msg('network'); status.classList.add('is-error'); }
         });
     });
   }

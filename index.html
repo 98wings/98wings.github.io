@@ -17,7 +17,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0f1115">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- ▼ SEO — à personnaliser ▼ -->
   <title>Bagmbaye Aggée | Computer Science Engineer &amp; AI Researcher</title>
@@ -51,9 +51,9 @@
     (function () {
       try {
         var t = localStorage.getItem('theme');
-        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        if (!t) t = 'light';
         document.documentElement.setAttribute('data-theme', t);
-      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
     })();
   </script>
 
@@ -173,21 +173,21 @@
         <div class="hero__text" data-reveal="right">
           <p class="hero__eyebrow" data-i18n="hero.eyebrow">Hello, I'm</p>
           <h1 class="hero__name">Bagmbaye <span class="hero__lastname">Aggée</span></h1>
-          <p class="hero__role" data-i18n="hero.role">
-            Computer Science Engineer · M.Sc. student at
+          <p class="hero__role">
+            <span data-i18n="hero.role">Computer Science Engineer · M.Sc. student at</span>
             <a href="https://en.dlut.edu.cn/" target="_blank" rel="noopener">Dalian University of Technology</a>
           </p>
-          <p class="hero__quote">
+          <p class="hero__quote" data-i18n="hero.quote">
             “Build systems that earn their place in memory, and in people's lives.”
           </p>
 
           <div class="hero__cta">
             <a class="btn btn--primary" href="data/cv.pdf" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16 6 10h4V3h4v7h4l-6 6Zm-8 5v-2h16v2H4Z"/></svg>
-              Download CV
+              <span data-i18n="hero.downloadCv">Download CV</span>
             </a>
-            <a class="btn" href="#research">My research</a>
-            <a class="btn" href="#contact">Get in touch</a>
+            <a class="btn" href="#research" data-i18n="hero.myResearch">My research</a>
+            <a class="btn" href="#contact" data-i18n="hero.getInTouch">Get in touch</a>
           </div>
 
           <!-- Compteurs animés — modifiez data-count -->
@@ -213,33 +213,18 @@
           <div class="about__text" data-reveal>
             <!-- ▼ Votre biographie ▼ -->
             <p>
-              I am a computer science engineer and postgraduate researcher, currently enrolled in a
-              <strong>M.Sc. in Computer Science and Technology</strong> at the
+              Computer science engineer and postgraduate researcher pursuing an
+              <strong>M.Sc. in Computer Science and Technology</strong> at
               <a href="https://en.dlut.edu.cn/" target="_blank" rel="noopener">Dalian University of Technology</a>,
-              China. I already hold a Master's in Computer Engineering from the
+              China, after a Master's in Computer Engineering from the
               <a href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">University of Ngaoundéré</a>,
-              Cameroon.
-            </p>
-            <p>
-              My current research asks a simple question with awkward consequences: when an
-              autonomous agent gets something right, <em>which</em> of its stored memories deserves
-              the credit? I work on <strong>causal credit attribution for self-evolving AI agent
-              memory</strong>: mechanisms that trace outcomes back to their contributing inputs,
-              so an agent keeps only what demonstrably earns its place. Before that, I spent two years
-              on <strong>missing-data imputation in public health time series</strong>, rebuilding
-              incomplete national malaria records into series usable for actual decision-making.
-            </p>
-            <p>
-              Originally from Chad, I have taught 200+ hours at a public university, supported
-              operations in a member-owned microfinance network and a national public broadcaster,
-              and completed <strong>several United Nations volunteer assignments</strong> with UNDP,
-              WHO, ROWCA and UNECA. That mix of research rigour on one side and resource-constrained
-              field reality on the other is what I bring to a team.
-            </p>
-            <p>
-              I am open to research collaborations, internships and PhD opportunities in AI, data
-              science and digital development. <a href="#contact">Write to me</a>, I answer every
-              message.
+              Cameroon. My research focuses on <strong>causal credit attribution for self-evolving AI
+              agent memory</strong>, building on earlier work in missing-data imputation for public
+              health time series. Originally from Chad, I have taught 200+ hours at a public
+              university and completed <strong>several United Nations volunteer assignments</strong>
+              with UNDP, WHO, ROWCA and UNECA. Open to research collaborations, internships and PhD
+              opportunities in AI, data science and digital development;
+              <a href="#contact">write to me</a>, I answer every message.
             </p>
 
             <ul class="chips" aria-label="Areas of interest">
@@ -281,13 +266,19 @@
             <span class="timeline__dot" aria-hidden="true"></span>
             <div class="timeline__date">Sep 2025 — Present</div>
             <div class="timeline__body">
-              <h3 class="timeline__heading">
-                M.Sc. in Computer Science and Technology
-                <a class="timeline__org" href="https://en.dlut.edu.cn/" target="_blank" rel="noopener">Dalian University of Technology</a>
-              </h3>
-              <p class="timeline__meta">Dalian, P.R. China · currently enrolled</p>
-              <p>Graduate research on causal credit attribution for self-evolving AI agent memory,
-                 alongside coursework in machine learning and advanced computing.</p>
+              <div class="timeline__row">
+                <a class="org-logo" href="https://en.dlut.edu.cn/" target="_blank" rel="noopener" aria-label="Dalian University of Technology">
+                  <img src="images/institutionslogo/DLUT_logo.png" alt="Dalian University of Technology logo" loading="lazy">
+                </a>
+                <div>
+                  <h3 class="timeline__heading">
+                    M.Sc. in Computer Science and Technology
+                    <a class="timeline__org" href="https://en.dlut.edu.cn/" target="_blank" rel="noopener">Dalian University of Technology</a>
+                  </h3>
+                  <p class="timeline__meta">Dalian, P.R. China · currently enrolled</p>
+                </div>
+              </div>
+              <p>Graduate research on causal credit attribution for self-evolving AI agent memory.</p>
               <ul class="tags"><li>AI Agents</li><li>Machine Learning</li><li>Research</li></ul>
             </div>
           </li>
@@ -296,13 +287,20 @@
             <span class="timeline__dot" aria-hidden="true"></span>
             <div class="timeline__date">Oct 2021 — Oct 2023</div>
             <div class="timeline__body">
-              <h3 class="timeline__heading">
-                M.Sc. in Computer Engineering
-                <a class="timeline__org" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">University of Ngaoundéré</a>
-              </h3>
-              <p class="timeline__meta">Ngaoundéré, Cameroon · Thesis written</p>
-              <p>Thesis on missing-data imputation in public health time series: comparative
-                 evaluation of imputation methods on incomplete national malaria records.</p>
+              <div class="timeline__row">
+                <a class="org-logo" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener" aria-label="University of Ngaoundéré">
+                  <img src="images/institutionslogo/universiteNgaoundere.png" alt="University of Ngaoundéré logo" loading="lazy">
+                </a>
+                <div>
+                  <h3 class="timeline__heading">
+                    M.Sc. in Computer Engineering
+                    <a class="timeline__org" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">University of Ngaoundéré</a>
+                  </h3>
+                  <p class="timeline__meta">Ngaoundéré, Cameroon · Thesis written</p>
+                </div>
+              </div>
+              <p>Thesis on missing-data imputation in public health time series, evaluated on
+                 incomplete national malaria records.</p>
               <ul class="tags"><li>Time Series</li><li>Imputation</li><li>Public Health</li></ul>
             </div>
           </li>
@@ -311,13 +309,20 @@
             <span class="timeline__dot" aria-hidden="true"></span>
             <div class="timeline__date">Oct 2021 — Nov 2022</div>
             <div class="timeline__body">
-              <h3 class="timeline__heading">
-                B.Sc. in Software Engineering
-                <a class="timeline__org" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">University Institute of Technology</a>
-              </h3>
-              <p class="timeline__meta">Ngaoundéré, Cameroon · Final project · taken concurrently with the M.Sc.</p>
-              <p>Applied software engineering programme completed in parallel with graduate study;
-                 final project deployed on the official university portal.</p>
+              <div class="timeline__row">
+                <a class="org-logo" href="https://iut.univ-ndere.cm/" target="_blank" rel="noopener" aria-label="University Institute of Technology, Ngaoundéré">
+                  <img src="images/institutionslogo/IUT.png" alt="University Institute of Technology logo" loading="lazy">
+                </a>
+                <div>
+                  <h3 class="timeline__heading">
+                    B.Sc. in Software Engineering
+                    <a class="timeline__org" href="https://iut.univ-ndere.cm/" target="_blank" rel="noopener">University Institute of Technology</a>
+                  </h3>
+                  <p class="timeline__meta">Ngaoundéré, Cameroon · Final project · taken concurrently with the M.Sc.</p>
+                </div>
+              </div>
+              <p>Applied software engineering programme completed alongside the M.Sc.; final project
+                 deployed on the university portal.</p>
               <ul class="tags"><li>Software Engineering</li><li>Web</li></ul>
             </div>
           </li>
@@ -326,11 +331,18 @@
             <span class="timeline__dot" aria-hidden="true"></span>
             <div class="timeline__date">Oct 2018 — Oct 2021</div>
             <div class="timeline__body">
-              <h3 class="timeline__heading">
-                B.Sc. in Computer Science
-                <a class="timeline__org" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">University of Ngaoundéré</a>
-              </h3>
-              <p class="timeline__meta">Ngaoundéré, Cameroon</p>
+              <div class="timeline__row">
+                <a class="org-logo" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener" aria-label="University of Ngaoundéré">
+                  <img src="images/institutionslogo/universiteNgaoundere.png" alt="University of Ngaoundéré logo" loading="lazy">
+                </a>
+                <div>
+                  <h3 class="timeline__heading">
+                    B.Sc. in Computer Science
+                    <a class="timeline__org" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">University of Ngaoundéré</a>
+                  </h3>
+                  <p class="timeline__meta">Ngaoundéré, Cameroon</p>
+                </div>
+              </div>
               <p>Fundamental computer science: algorithms, systems, networks and mathematics.</p>
               <ul class="tags"><li>Algorithms</li><li>Systems</li><li>Networks</li></ul>
             </div>
@@ -349,87 +361,122 @@
         <div class="cards">
           <!-- ▼ Une <article> par expérience ▼ -->
           <article class="card" data-reveal>
-            <header class="card__head">
-              <h3>Online Volunteer | Research, Drafting &amp; Communications</h3>
-              <span class="card__date">Jun 2024 — Present</span>
-            </header>
-            <p class="card__org">
-              <a href="https://www.unv.org/" target="_blank" rel="noopener">United Nations Volunteers (UNV)</a>
-              · Remote: UNDP, WHO, ROWCA, UNECA
-            </p>
-            <p>Completed <strong>several UN volunteer assignments</strong> across four agencies,
-               supporting SDG-aligned programmes in digital skills, AI awareness and public health.
-               Drafted knowledge products and programme briefs, translating technical content into
-               clear summaries for non-specialist audiences, and produced bilingual French/English
-               material extending the reach of WHO and UNECA campaigns.</p>
+            <div class="card__row">
+              <a class="org-logo" href="https://www.unv.org/" target="_blank" rel="noopener" aria-label="United Nations Volunteers">
+                <img src="images/institutionslogo/UNV_icon.png" alt="United Nations Volunteers logo" loading="lazy">
+              </a>
+              <div>
+                <header class="card__head">
+                  <h3>Online Volunteer | Research, Drafting &amp; Communications</h3>
+                  <span class="card__date">Jun 2024 — Present</span>
+                </header>
+                <p class="card__org">
+                  <a href="https://www.unv.org/" target="_blank" rel="noopener">United Nations Volunteers (UNV)</a>
+                  · Remote: UNDP, WHO, ROWCA, UNECA
+                </p>
+              </div>
+            </div>
+            <p>Supported SDG-aligned programmes in digital skills, AI awareness and public health
+               across four UN agencies. Drafted knowledge products and bilingual French/English
+               material for WHO and UNECA campaigns.</p>
             <ul class="tags"><li>Research</li><li>Drafting</li><li>Bilingual FR/EN</li><li>SDGs</li></ul>
           </article>
 
           <article class="card" data-reveal>
-            <header class="card__head">
-              <h3>University Lecturer | Computer Science</h3>
-              <span class="card__date">Feb 2025 — Jul 2025</span>
-            </header>
-            <p class="card__org">University of Pala (public university) · Pala, Chad</p>
-            <p>Delivered <strong>200+ hours of teaching</strong> in a single semester across
-               <strong>four academic departments</strong> to cohorts of <strong>100+ students</strong>.
-               Designed syllabi, examinations and materials, then graded all resulting work. Raised
-               attendance by introducing low-cost, technology-enabled methods adapted to
-               connectivity and equipment constraints.</p>
+            <div class="card__row">
+              <a class="org-logo" href="https://www.facebook.com/p/Universit%C3%A9-de-Pala-UDP-Officiel-61550857503413/" target="_blank" rel="noopener" aria-label="University of Pala">
+                <img src="images/institutionslogo/Universite-Pala.png" alt="University of Pala logo" loading="lazy">
+              </a>
+              <div>
+                <header class="card__head">
+                  <h3>University Lecturer | Computer Science</h3>
+                  <span class="card__date">Feb 2025 — Jul 2025</span>
+                </header>
+                <p class="card__org">University of Pala (public university) · Pala, Chad</p>
+              </div>
+            </div>
+            <p>Delivered <strong>200+ teaching hours</strong> in one semester across four departments
+               to cohorts of <strong>100+ students</strong>. Designed syllabi and materials, and
+               raised attendance with low-cost methods suited to local constraints.</p>
             <ul class="tags"><li>Teaching</li><li>Curriculum Design</li><li>EdTech</li></ul>
           </article>
 
           <article class="card" data-reveal>
-            <header class="card__head">
-              <h3>Professional Intern | Production &amp; IT</h3>
-              <span class="card__date">Dec 2024 — Feb 2025</span>
-            </header>
-            <p class="card__org">National Television (ONAMA), public broadcaster · N'Djamena, Chad</p>
-            <p>Supported daily operations of Chad's national broadcaster across field reporting,
-               live studio production, editing, motion graphics and IT systems. Prepared and
-               quality-checked broadcast segments to on-air deadlines and resolved technical
-               incidents during live transmission.</p>
+            <div class="card__row">
+              <a class="org-logo" href="https://www.facebook.com/share/19gLFbtBYG/" target="_blank" rel="noopener" aria-label="ONAMA">
+                <img src="images/institutionslogo/ONAMA.png" alt="ONAMA logo" loading="lazy">
+              </a>
+              <div>
+                <header class="card__head">
+                  <h3>Professional Intern | Production &amp; IT</h3>
+                  <span class="card__date">Dec 2024 — Feb 2025</span>
+                </header>
+                <p class="card__org">National Television (ONAMA), public broadcaster · N'Djamena, Chad</p>
+              </div>
+            </div>
+            <p>Supported daily operations of Chad's national broadcaster: field reporting, live
+               studio production, editing and IT systems. Prepared broadcast segments to on-air
+               deadlines and resolved live technical incidents.</p>
             <ul class="tags"><li>Avid</li><li>Adobe CC</li><li>Live Production</li></ul>
           </article>
 
           <article class="card" data-reveal>
-            <header class="card__head">
-              <h3>Professional Intern | Operations &amp; IT</h3>
-              <span class="card__date">Jul 2024 — Sep 2024</span>
-            </header>
-            <p class="card__org">Union of Savings and Credit Clubs (UCEC MK) · Pala, Chad</p>
+            <div class="card__row">
+              <a class="org-logo" href="https://www.facebook.com/ucecpala/" target="_blank" rel="noopener" aria-label="UCEC MK">
+                <img src="images/institutionslogo/UCEC.png" alt="UCEC MK logo" loading="lazy">
+              </a>
+              <div>
+                <header class="card__head">
+                  <h3>Professional Intern | Operations &amp; IT</h3>
+                  <span class="card__date">Jul 2024 — Sep 2024</span>
+                </header>
+                <p class="card__org">Union of Savings and Credit Clubs (UCEC MK) · Pala, Chad</p>
+              </div>
+            </div>
             <p>Conducted <strong>credit-recovery field missions</strong> for a member-owned
-               microfinance network, tracking and reconciling defaulted loan portfolios in the
-               PERFECT banking system. Collected and cleaned operational data across branches, and
-               authored the functional specification for a website modernizing member services.</p>
+               microfinance network, reconciling defaulted loan portfolios in the PERFECT banking
+               system. Authored the functional specification for a member-services website.</p>
             <ul class="tags"><li>Microfinance</li><li>Data Reconciliation</li><li>IT Support</li></ul>
           </article>
 
           <article class="card" data-reveal>
-            <header class="card__head">
-              <h3>Digital Inclusion Volunteer | University Outreach</h3>
-              <span class="card__date">Sep 2023 — Oct 2023</span>
-            </header>
-            <p class="card__org">Orange Cameroon · Ngaoundéré, Cameroon</p>
-            <p>Planned and delivered campus awareness events for the <strong>Parcours Sup</strong>
-               digital orientation platform: logistics, materials and on-site facilitation,
-               strengthening links between the private sector and higher education.</p>
+            <div class="card__row">
+              <a class="org-logo" href="https://www.orange.cm/" target="_blank" rel="noopener" aria-label="Orange Cameroon">
+                <img src="images/institutionslogo/Orange-cameroun.png" alt="Orange Cameroon logo" loading="lazy">
+              </a>
+              <div>
+                <header class="card__head">
+                  <h3>Digital Inclusion Volunteer | University Outreach</h3>
+                  <span class="card__date">Sep 2023 — Oct 2023</span>
+                </header>
+                <p class="card__org">Orange Cameroon · Ngaoundéré, Cameroon</p>
+              </div>
+            </div>
+            <p>Planned and delivered campus events for the <strong>Parcours Sup</strong> digital
+               orientation platform, strengthening links between the private sector and higher
+               education.</p>
             <ul class="tags"><li>Outreach</li><li>Digital Inclusion</li><li>Events</li></ul>
           </article>
 
           <article class="card" data-reveal>
-            <header class="card__head">
-              <h3>Student Intern | Web Development</h3>
-              <span class="card__date">Jun 2022 — Sep 2022</span>
-            </header>
-            <p class="card__org">
-              ICT Development Center (CDTIC) · Ngaoundéré, Cameroon
-            </p>
-            <p>Designed, developed and deployed the <strong>Student Association module</strong> of the
-               official portal of the University of Ngaoundéré
+            <div class="card__row">
+              <a class="org-logo" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener" aria-label="ICT Development Center (CDTIC)">
+                <img src="images/institutionslogo/CDTIC.png" alt="ICT Development Center logo" loading="lazy">
+              </a>
+              <div>
+                <header class="card__head">
+                  <h3>Student Intern | Web Development</h3>
+                  <span class="card__date">Jun 2022 — Sep 2022</span>
+                </header>
+                <p class="card__org">
+                  ICT Development Center (CDTIC) · Ngaoundéré, Cameroon
+                </p>
+              </div>
+            </div>
+            <p>Designed and deployed the <strong>Student Association module</strong> of the
+               University of Ngaoundéré's official portal
                (<a href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">univ-ndere.cm</a>),
-               a public-sector digital service used by the entire student body. I documented it and
-               handed it over to the in-house IT team, which still operates it.</p>
+               used by the entire student body. Documented and handed it over to the in-house IT team.</p>
             <ul class="tags"><li>PHP</li><li>JavaScript</li><li>Public Sector</li></ul>
           </article>
         </div>
@@ -462,9 +509,8 @@
               <h3 class="pub__title">Causal credit attribution for self-evolving AI agent memory</h3>
               <p class="pub__authors"><strong>A. Bagmbaye</strong> · M.Sc. research, Dalian University of Technology</p>
               <p class="pub__venue"><span class="venue venue--hl">In progress · 2025 — present</span></p>
-              <p class="pub__abstract">Designing mechanisms that let an autonomous agent trace outcomes
-                back to the stored experiences that produced them, so memory retains only what
-                demonstrably earns its place.</p>
+              <p class="pub__abstract">Mechanisms that trace an agent's outcomes back to the
+                experiences that produced them, so memory keeps only what earns its place.</p>
               <div class="pub__links">
                 <span class="pill">Ongoing</span>
                 <span class="pill">Paper in preparation</span>
@@ -481,8 +527,7 @@
               <p class="pub__authors"><strong>A. Bagmbaye</strong> · Master's thesis, University of Ngaoundéré</p>
               <p class="pub__venue"><span class="venue">Master's thesis, 2023 · paper in preparation</span></p>
               <p class="pub__abstract">Comparative evaluation of imputation methods on incomplete
-                national malaria records (Adamaoua region, Cameroon), restoring series suitable for
-                statistical analysis and evidence-based decision-making.</p>
+                national malaria records (Adamaoua, Cameroon), for evidence-based decision-making.</p>
               <div class="pub__links">
                 <span class="pill">Master's thesis</span>
                 <span class="pill">Paper in preparation</span>
@@ -538,20 +583,41 @@
         <div class="cards cards--3">
           <article class="card card--award" data-reveal>
             <span class="card__year">2025</span>
-            <h3>Graduate admission, Dalian University of Technology</h3>
-            <p class="card__org">Double First-Class university, P.R. China</p>
+            <div class="card__row">
+              <a class="org-logo" href="https://en.dlut.edu.cn/" target="_blank" rel="noopener" aria-label="Dalian University of Technology">
+                <img src="images/institutionslogo/DLUT_logo.png" alt="Dalian University of Technology logo" loading="lazy">
+              </a>
+              <div>
+                <h3>Graduate admission, Dalian University of Technology</h3>
+                <p class="card__org">Double First-Class university, P.R. China</p>
+              </div>
+            </div>
             <p>Admitted to the M.Sc. programme in Computer Science and Technology.</p>
           </article>
           <article class="card card--award" data-reveal>
             <span class="card__year">2023</span>
-            <h3>Master's thesis in health data imputation</h3>
-            <p class="card__org">University of Ngaoundéré</p>
+            <div class="card__row">
+              <a class="org-logo" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener" aria-label="University of Ngaoundéré">
+                <img src="images/institutionslogo/universiteNgaoundere.png" alt="University of Ngaoundéré logo" loading="lazy">
+              </a>
+              <div>
+                <h3>Master's thesis in health data imputation</h3>
+                <p class="card__org">University of Ngaoundéré</p>
+              </div>
+            </div>
             <p>Missing-data imputation in public health time series.</p>
           </article>
           <article class="card card--award" data-reveal>
             <span class="card__year">2022</span>
-            <h3>B.Sc. final project deployed in production</h3>
-            <p class="card__org">University Institute of Technology, Ngaoundéré</p>
+            <div class="card__row">
+              <a class="org-logo" href="https://iut.univ-ndere.cm/" target="_blank" rel="noopener" aria-label="University Institute of Technology, Ngaoundéré">
+                <img src="images/institutionslogo/IUT.png" alt="University Institute of Technology logo" loading="lazy">
+              </a>
+              <div>
+                <h3>B.Sc. final project deployed in production</h3>
+                <p class="card__org">University Institute of Technology, Ngaoundéré</p>
+              </div>
+            </div>
             <p>Student Association module deployed on the official university portal.</p>
           </article>
         </div>
@@ -614,13 +680,20 @@
 
         <div class="grid" id="projectGrid">
           <article class="project" data-reveal data-cat="software">
-            <div class="project__img"><img src="images/projects/proj-1.svg" alt="Project preview" loading="lazy" width="400" height="240"></div>
+            <div class="project__img">
+              <img src="images/projects/proj-1.svg" alt="Project preview" loading="lazy" width="400" height="240">
+            </div>
             <div class="project__body">
               <h3>University portal: Student Association module</h3>
               <p>Public-sector web service built, documented and handed over to the University of
                  Ngaoundéré's IT team. Still in production.</p>
               <ul class="tags"><li>PHP</li><li>JavaScript</li><li>MySQL</li></ul>
-              <a class="link-arrow" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">Visit the site</a>
+              <div class="project__link">
+                <a class="org-logo org-logo--sm" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener" aria-label="University of Ngaoundéré">
+                  <img src="images/institutionslogo/universiteNgaoundere.png" alt="University of Ngaoundéré logo" loading="lazy">
+                </a>
+                <a class="link-arrow" href="https://www.univ-ndere.cm/" target="_blank" rel="noopener">Visit the site</a>
+              </div>
             </div>
           </article>
 
@@ -636,13 +709,20 @@
           </article>
 
           <article class="project" data-reveal data-cat="social">
-            <div class="project__img"><img src="images/projects/proj-3.svg" alt="Project preview" loading="lazy" width="400" height="240"></div>
+            <div class="project__img">
+              <img src="images/projects/proj-3.svg" alt="Project preview" loading="lazy" width="400" height="240">
+            </div>
             <div class="project__body">
               <h3>UN knowledge products &amp; campaigns</h3>
               <p>Bilingual briefs, graphics and multimedia produced across UNV assignments for
                  UNDP, WHO, ROWCA and UNECA.</p>
               <ul class="tags"><li>Adobe CC</li><li>Writing</li><li>FR/EN</li></ul>
-              <a class="link-arrow" href="https://www.unv.org/" target="_blank" rel="noopener">About UNV</a>
+              <div class="project__link">
+                <a class="org-logo org-logo--sm" href="https://www.unv.org/" target="_blank" rel="noopener" aria-label="United Nations Volunteers">
+                  <img src="images/institutionslogo/UNV_icon.png" alt="United Nations Volunteers logo" loading="lazy">
+                </a>
+                <a class="link-arrow" href="https://www.unv.org/" target="_blank" rel="noopener">About UNV</a>
+              </div>
             </div>
           </article>
 
@@ -703,19 +783,17 @@
         <h2 class="section__title" data-reveal>Beyond research</h2>
         <div class="misc" data-reveal>
           <p>
-            I grew up in Chad, studied in Cameroon and now live in Dalian. Three places that
-            disagree about almost everything except the value of a good meal. Outside the lab I read
-            non-fiction, follow football, cook dishes from home for friends, and I am slowly
-            learning to photograph the sea in a Dalian winter. I also spend more time than I should
-            adjusting CSS.
+            Grew up in Chad, studied in Cameroon, now live in Dalian: three places that agree on
+            little except good food. Outside the lab I read, follow football, cook for friends, and
+            I'm learning to photograph the sea in a Dalian winter.
           </p>
           <ul class="chips">
-            <li>📚 Reading</li>
-            <li>⚽ Football</li>
-            <li>📷 Photography</li>
-            <li>🍲 Cooking</li>
-            <li>🌐 Languages</li>
-            <li>🤝 Volunteering</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6c-1.8-1.3-4.2-2-6.5-2A2.5 2.5 0 0 0 3 6.5v11A2.5 2.5 0 0 0 5.5 20c2 0 4.3.6 6 1.8V6Z"/><path d="M12 6c1.8-1.3 4.2-2 6.5-2A2.5 2.5 0 0 1 21 6.5v11A2.5 2.5 0 0 1 18.5 20c-2 0-4.3.6-6 1.8V6Z"/></svg><span>Reading</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8.2 15 10.4l-1.1 3.5H10L9 10.4 12 8.2Z"/><path d="M12 8.2V4.5M15 10.4l3.3-1M13.9 13.9l2 3.1M10 13.9l-2 3.1M9 10.4l-3.3-1"/></svg><span>Football</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.3"/></svg><span>Photography</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h16v2a6.5 6.5 0 0 1-6.5 6.5h-3A6.5 6.5 0 0 1 4 12v-2Z"/><path d="M3 10h18"/><path d="M7 10 8 6M17 10l-1-4"/><circle cx="12" cy="5" r="1"/></svg><span>Cooking</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3Z"/></svg><span>Languages</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.35-9.5-8.5C1 8.5 2.5 5 6 5c2 0 3.5 1.2 4 2.5.5-1.3 2-2.5 4-2.5 3.5 0 5 3.5 3.5 6.5C19 15.65 12 20 12 20Z"/></svg><span>Volunteering</span></li>
           </ul>
         </div>
       </div>
@@ -729,16 +807,17 @@
         <h2 class="section__title" data-reveal data-i18n="contact.title">Get in touch</h2>
         <div class="contact" data-reveal>
           <p class="contact__lead">
-            The fastest way to reach me is by email. I am happy to talk about research
-            collaborations, internships, PhD positions, or anything on this page.
+            Email is the fastest way to reach me, about research collaborations, internships, PhD
+            positions, or anything on this page.
           </p>
 
           <!--
-            Formulaire fonctionnel sans backend :
-            créez un compte gratuit sur https://formspree.io et remplacez YOUR_ID.
-            Sinon, laissez tel quel : le formulaire ouvre votre client mail (fallback JS).
+            Formulaire branché sur Formspree (https://formspree.io/f/xppaykkp).
+            L'envoi se fait en AJAX depuis js/main.js (fetch + FormData) : la
+            confirmation "message envoyé" ne s'affiche qu'après une vraie
+            réponse HTTP 200 de Formspree — pas avant.
           -->
-          <form class="form" id="contactForm" action="https://formspree.io/f/YOUR_ID" method="POST">
+          <form class="form" id="contactForm" action="https://formspree.io/f/xppaykkp" method="POST">
             <div class="form__row">
               <label class="field">
                 <span>Name</span>
@@ -758,11 +837,11 @@
           </form>
 
           <ul class="contact__direct">
-            <li><span>Academic</span> <a href="mailto:aggeebagmbaye@mail.dlut.edu.cn">aggeebagmbaye@mail.dlut.edu.cn</a></li>
+            <li><span data-i18n="contact.academic">Academic</span> <a href="mailto:aggeebagmbaye@mail.dlut.edu.cn">aggeebagmbaye@mail.dlut.edu.cn</a></li>
            <!-- %<li><span>Personal</span> <a href="mailto:aggeebagmbaye@gmail.com">aggeebagmbaye@gmail.com</a></li>-->
-            <li><span>GitHub</span> <a href="https://github.com/98wings" target="_blank" rel="noopener">@98wings</a></li>
-            <li><span>LinkedIn</span> <a href="https://www.linkedin.com/in/agg%C3%A9e-bagmbaye-60863b255" target="_blank" rel="noopener">Bagmbaye Aggée</a></li>
-            <li><span>CV</span> <a href="data/cv.pdf" target="_blank" rel="noopener">Download PDF</a></li>
+            <li><span data-i18n="contact.github">GitHub</span> <a href="https://github.com/98wings" target="_blank" rel="noopener">@98wings</a></li>
+            <li><span data-i18n="contact.linkedin">LinkedIn</span> <a href="https://www.linkedin.com/in/agg%C3%A9e-bagmbaye-60863b255" target="_blank" rel="noopener">Bagmbaye Aggée</a></li>
+            <li><span data-i18n="contact.cv">CV</span> <a href="data/cv.pdf" target="_blank" rel="noopener">Download PDF</a></li>
           </ul>
         </div>
       </div>
@@ -774,11 +853,7 @@
        ==================================================================== -->
   <footer class="footer">
     <div class="container footer__inner">
-      <p>© <span id="year">2026</span> Bagmbaye Aggée. All rights reserved.</p>
-      <p class="footer__meta">
-        Built with plain HTML, CSS &amp; JavaScript · Hosted on GitHub Pages ·
-        Last updated <time id="updated" datetime="2026-08-16">16 Aug 2026</time>
-      </p>
+      <p>© <span id="year">2026</span> Bagmbaye Aggée. <span data-i18n="footer.rights">All rights reserved.</span></p>
       <div class="footer__social">
         <a class="icon-btn" href="https://github.com/98wings" target="_blank" rel="noopener" aria-label="GitHub">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.18 9.06 7.6 10.53.56.1.76-.24.76-.53v-2.05c-3.09.67-3.74-1.32-3.74-1.32-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.94.1-.73.39-1.22.71-1.5-2.47-.28-5.07-1.24-5.07-5.5 0-1.22.43-2.21 1.15-2.99-.12-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.14a10.6 10.6 0 0 1 5.6 0c2.12-1.44 3.06-1.14 3.06-1.14.61 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.99 0 4.28-2.61 5.22-5.09 5.49.4.35.76 1.03.76 2.08v3.08c0 .3.2.64.77.53a11.11 11.11 0 0 0 7.59-10.53C23.1 5.33 18.27.5 12 .5Z"/></svg>
