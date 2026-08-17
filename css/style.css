@@ -640,7 +640,7 @@ p { margin: 0 0 1.1em; }
 .pubs { display: grid; gap: 14px; }
 
 .pub {
-  display: grid; grid-template-columns: 160px 1fr; gap: 18px;
+  display: grid; grid-template-columns: 160px 1fr; gap: 18px; align-items: start;
   padding: 16px; border-radius: var(--radius);
   border: 1px solid transparent;
   transition: background var(--t), border-color var(--t), transform var(--t);
